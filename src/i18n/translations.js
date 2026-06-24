@@ -1,0 +1,123 @@
+// Basic translation strings for BridgeLearn
+// Only key UI labels are translated for the prototype. Arabic translations
+// are approximate and focus on main navigation and buttons.
+
+export const translations = {
+  en: {
+    appName: 'BridgeLearn',
+    subtitle: 'Reimagining Education in a Disrupted World',
+    description: 'Offline‑first academic readiness guidance for students in disrupted and low‑connectivity environments.',
+    english: 'English',
+    arabic: 'Arabic',
+    startCheck: 'Start Readiness Check',
+    viewDemos: 'View Demo Profiles',
+    profileTitle: 'Create Profile',
+    studentName: 'Student Name',
+    age: 'Age',
+    grade: 'Grade',
+    preferredLanguage: 'Preferred Language',
+    academicGoal: 'Academic Goal',
+    currentSituation: 'Current Situation',
+    saveContinue: 'Save & Continue',
+    back: 'Back',
+    examsTitle: 'Readiness Exams',
+    examsSubtitle: 'Complete the three short exams to receive your Academic Score, Integrity Score, recommended pathway, and learning plan.',
+    englishExam: 'English Exam',
+    mathExam: 'Math Exam',
+    criticalExam: 'Critical Thinking',
+    questions: 'questions',
+    minutes: 'minutes',
+    notStarted: 'Not started',
+    inProgress: 'In progress',
+    completed: 'Completed',
+    startExam: 'Start Exam',
+    continueExam: 'Continue',
+    viewResults: 'View Results',
+    timeLeft: 'Time left',
+    next: 'Next',
+    previous: 'Previous',
+    submit: 'Submit',
+    warningSelectAnswer: 'Please select an answer before continuing.',
+    resultsTitle: 'Results',
+    integrityTitle: 'Integrity Score',
+    recommendationTitle: 'Recommendation',
+    planTitle: 'Learning Plan',
+    openModule: 'Open Recommended Module',
+    module: 'Module',
+    video: 'Video',
+    notes: 'Notes',
+    lessonQuiz: 'Lesson Quiz',
+    markCompleted: 'Mark as Completed',
+    dashboard: 'Dashboard',
+    retakeAssessment: 'Retake Assessment',
+    openPlan: 'Open Plan',
+    continueModule: 'Continue Module',
+    resetData: 'Reset Data',
+  },
+  ar: {
+    appName: 'بريدج ليرن',
+    subtitle: 'إعادة تصور التعليم في عالم مضطرب',
+    description: 'توجيه جاهزية أكاديمية يعمل بدون اتصال للطلاب في بيئات منخفضة الاتصال.',
+    english: 'الإنجليزية',
+    arabic: 'العربية',
+    startCheck: 'بدء اختبار الجاهزية',
+    viewDemos: 'عرض حسابات تجريبية',
+    profileTitle: 'إنشاء ملف الطالب',
+    studentName: 'اسم الطالب',
+    age: 'العمر',
+    grade: 'الصف',
+    preferredLanguage: 'اللغة المفضلة',
+    academicGoal: 'الهدف الأكاديمي',
+    currentSituation: 'الوضع الحالي',
+    saveContinue: 'حفظ ومتابعة',
+    back: 'عودة',
+    examsTitle: 'اختبارات الجاهزية',
+    examsSubtitle: 'أكمل الاختبارات الثلاثة القصيرة للحصول على درجتك الأكاديمية ودرجة النزاهة والمسار الموصى به وخطة التعلم.',
+    englishExam: 'اختبار الإنجليزية',
+    mathExam: 'اختبار الرياضيات',
+    criticalExam: 'اختبار التفكير النقدي',
+    questions: 'سؤال',
+    minutes: 'دقيقة',
+    notStarted: 'لم يبدأ',
+    inProgress: 'قيد التنفيذ',
+    completed: 'مكتمل',
+    startExam: 'ابدأ الاختبار',
+    continueExam: 'متابعة',
+    viewResults: 'عرض النتائج',
+    timeLeft: 'الوقت المتبقي',
+    next: 'التالي',
+    previous: 'السابق',
+    submit: 'إرسال',
+    warningSelectAnswer: 'يرجى اختيار إجابة قبل المتابعة.',
+    resultsTitle: 'النتائج',
+    integrityTitle: 'درجة النزاهة',
+    recommendationTitle: 'التوصية',
+    planTitle: 'خطة التعلم',
+    openModule: 'افتح الوحدة الموصى بها',
+    module: 'وحدة',
+    video: 'فيديو',
+    notes: 'ملاحظات',
+    lessonQuiz: 'اختبار الدرس',
+    markCompleted: 'وضع علامة كمكتمل',
+    dashboard: 'لوحة التحكم',
+    retakeAssessment: 'إعادة التقييم',
+    openPlan: 'افتح الخطة',
+    continueModule: 'متابعة الوحدة',
+    resetData: 'إعادة ضبط البيانات',
+  },
+};
+
+/**
+ * Helper hook to access translations based on the current language from context.
+ * Returns a function `t(key)` that returns the translated string.
+ */
+import { useApp } from '../context/AppContext';
+
+export const useTranslation = () => {
+  const { language } = useApp();
+  const t = (key) => {
+    const lang = translations[language] || translations.en;
+    return lang[key] || key;
+  };
+  return { t, language };
+};
